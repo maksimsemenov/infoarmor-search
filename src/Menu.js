@@ -12,28 +12,38 @@ const Menu = ({ value, selectedTags, onItemClick, onMouseDown }) => {
 
       return {
         section,
-        items: sections[section]
+        cols: sections[section]
         .filter(item => value ? item.indexOf(value.toLowerCase()) !== -1 : true)
         .filter(item => sectionTags.indexOf(item) === -1)
-        .slice(0, 10)
+        .sort()
+        .slice(0, 12)
+        .reduce((cols, item, i) => {
+          let colIndex = Math.floor(i / 4)
+          cols[colIndex] = cols[colIndex] ? [...cols[colIndex], item] : [item]
+          return cols
+        }, [])
       }
     })
-    .filter(s => s.items.length)
+    .filter(s => s.cols.length)
 
 
   return (
     <div className='menu' onMouseDown={onMouseDown}>
       {filteredSections.length ? (
-        filteredSections.map(({ section, items }, index) =>
+        filteredSections.map(({ section, cols }, index) =>
           <div className='menu__section' key={index}>
             <div className='menu__section-name'>{capitalize(section + 's')}</div>
             <div className='menu__section-items'>
-              {items.map((item, i) =>
-                <div
-                  key={i}
-                  className='menu__item'
-                  onClick={() => onItemClick({ value: item, label: section})}
-                >{capitalize(item)}</div>
+              {cols.map((items, i) =>
+                <div key={i} className='menu__col'>
+                  {items.map((item, i) =>
+                    <div
+                      key={i}
+                      className='menu__item'
+                      onClick={() => onItemClick({ value: item, label: section})}
+                    >{capitalize(item)}</div>
+                  )}
+                </div>
               )}
             </div>
           </div>
