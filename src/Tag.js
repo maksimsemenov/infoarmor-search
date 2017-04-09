@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
 import './Tag.css'
 
-const Tag = ({ label, value, onRemove }) => (
-  <div className='tag'>
+const Tag = ({ label, value, onRemove, onMouseDown, onMouseUp }) => (
+  <div className='tag' onMouseDown={onMouseDown} onMouseUp={onMouseUp}>
     <div className='tag__label'>{label}</div>
     <div className='tag__value'>{value}</div>
     <div className='tag__remove' onClick={() => onRemove()}>
