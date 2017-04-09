@@ -25,11 +25,19 @@ class Search extends Component {
     this.ignoreBlur = false
   }
   handleChange(e) {
-    this.setState({ currentValue: e.target.value })
+    this.setState({ currentValue: e.target.value === ',' ? '' : e.target.value })
   }
   handleKeyDown(e) {
     switch (e.key) {
       case 'Escape':
+        this.setState({ open: false, currentValue: '' })
+        this.input.blur()
+        break
+      case ',':
+        this.handleItemClick({ value: e.target.value.replace(',', '') })
+        break
+      case 'Enter':
+        this.handleItemClick({ value: e.target.value.replace(',', '') })
         this.setState({ open: false, currentValue: '' })
         this.input.blur()
         break

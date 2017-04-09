@@ -3,7 +3,7 @@ import './Tag.css'
 
 const Tag = ({ label, value, onRemove, onMouseDown, onMouseUp }) => (
   <div className='tag' onMouseDown={onMouseDown} onMouseUp={onMouseUp}>
-    <div className='tag__label'>{label}</div>
+    {label && <div className='tag__label'>{label}</div>}
     <div className='tag__value'>{value}</div>
     <div className='tag__remove' onClick={() => onRemove()}>
       <svg viewBox='0 0 16 16' className='tag__remove-icon'>
