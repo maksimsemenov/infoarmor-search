@@ -1,0 +1,32 @@
+.search {
+  position: relative;
+  width: 500px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  padding: 5px;
+
+  border-radius: 3px;
+  border: 1px solid #eee;
+  font-size: 14px;
+}
+.search:hover {
+  border-color: #ddd;
+}
+.search.has-focus {
+  border-color: #0A5794;
+}
+
+.search__input {
+  flex-grow: 1;
+  border: none;
+  padding: 5px 6px;
+  font-size: 14px;
+  border-radius: 3px;
+}
+.search__input:focus {
+  outline: none;
+}
+.search__input::placeholder {
+  color: #bbb;
+}

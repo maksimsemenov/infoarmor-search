@@ -1,0 +1,43 @@
+.tag {
+  position: relative;
+  margin: 2px;
+  display: flex;
+  flex-flow: row nowrap;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.tag__label {
+  padding: 6px 5px 4px;
+  margin-right: 1px;
+  background-color: #D5E2EC;
+  color: rgba(0,0,0,0.4);
+  font-size: 9px;
+  text-transform: uppercase;
+}
+.tag__value {
+  padding: 4px 20px 4px 5px;
+  background-color: #E2EBF2;
+  font-size: 11px;
+}
+.tag__remove {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 20px;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.tag__remove-icon {
+  width: 14px;
+  height: 14px;
+  stroke: #B4BCC1;
+  transition: stroke 0.1s ease-out;
+}
+.tag__remove:hover .tag__remove-icon {
+  stroke: #878D91;
+}
