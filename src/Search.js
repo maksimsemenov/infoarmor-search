@@ -50,7 +50,6 @@ class Search extends Component {
     this.setState({ open: false })
   }
   handleSearchClick(e) {
-    console.log('search click', this.ignoreOpen)
     if (this.ignoreOpen) return
     this.setState({ open: true })
     this.input.focus()
